@@ -1,46 +1,23 @@
-# Getting Started with Create React App
+# Valueblue assigment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+To install deps
 
-In the project directory, you can run:
+## `npm i`
 
-### `npm start`
+To start
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## `npm start`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Answers
 
-### `npm test`
+#### Considering thet different users can work on the same diagram at the same time, design/describe a straregy to share changes on the diagram.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To acheve this we should have one source of truth on a server. With any change which a user make we should save that change on the server. At the same time we should constantly listen the server to get all changes and show them on the screen. We can use WebSocket or so to get/set diagram changes.
 
-### `npm run build`
+#### consodering the diagram model, and the fact that any change on the digram should be peristent, design/describe a strategy to save changes on the diagram.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+We can set/get a Edit mark for a element which is under editing at the moment, that can reduce overwriting cases. So we should add `EditNow` structure for a diagram. Inside can be fields like - `ElementId, TimestampStart, UserId`, etc. For sure we should save all history of diagram changes.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ps: With multiusing it would be convenient to show information about who uses a diagram at the moment and which part with that users can work on different diagram's parts and do not disturb each other.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
